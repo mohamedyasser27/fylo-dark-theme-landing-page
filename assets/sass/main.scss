@@ -6,7 +6,7 @@
 
 body {
   background-color: $Dark_Blue;
-  color: $Blue;
+  color: $White;
   font: {
     family: "Open Sans", sans-serif;
     size: 14px;
@@ -14,33 +14,48 @@ body {
   }
 }
 
+main > *:not(header) {
+  margin-top: 50px;
+}
+
 .content {
-  width: 80%;
+  width: 90%;
+  margin: 0 auto;
 }
 
 header .content {
-  @include flexer(row, space-between, center, wrap, 20px);
-  margin: 0 auto;
+  @include flexer(row, space-between, center, nowrap, 10px);
   padding-top: 35px;
+
+  .header-logo-img {
+    max-width: 100%;
+  }
 }
 
 .main-nav {
   &__list {
+    $gap: 30px;
     list-style-type: none;
-  }
-  &__item {
-    display: inline-block;
-    margin-right: 35px;
+    @include flexer(
+      row,
+      start,
+      center,
+      nowrap,
+      clamp(0.5 * $gap, 0.3394 * $gap + 1.3761vw, 1 * $gap)
+    );
   }
   &__link {
     display: block;
     color: $White;
     text-decoration: none;
+    white-space: nowrap;
+    /*relative to after*/
     position: relative;
+      transition: color 225ms 0s ease-out;
 
     &::after {
       content: "";
-      background-color: $White;
+      background-color: $Cyan;
       display: block;
       position: absolute;
       left: 0px;
@@ -51,8 +66,72 @@ header .content {
       transition: width 225ms 0s ease-out;
     }
 
+    &:hover{
+      color: $Cyan;
+    }
     &:hover::after {
       width: 100%;
+    }
+  }
+}
+
+.intro {
+  & .content {
+    $gap: 50px;
+    @include flexer(column, start, center, nowrap, 25px);
+    text-align: center;
+  }
+
+  &__hero {
+    width: 100%;
+    &__img {
+      max-width: 100%;
+    }
+  }
+
+  &__header {
+    font-family: "Raleway";
+    max-width: 29ch;
+    width: 100%;
+    font: {
+      size: 2rem;
+      weight: 700;
+    }
+  }
+
+  &__description {
+    max-width: 52ch;
+    width: 100%;
+    font-size: 1.5rem;
+  }
+
+  &__start-btn {
+    @include resetBtnStyle;
+    border-radius: 50px;
+    background: linear-gradient(
+      90deg,
+      rgba(101, 226, 217, 1) 0%,
+      rgba(51, 158, 204, 1) 87%
+    );
+    padding: 18px;
+    max-width: 250px;
+    width: 100%;
+    transform-origin: center center;
+    transition: filter 225ms 0ms ease-out;
+
+    &:hover {
+    background:#8CDAE4;
+    }
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .intro {
+    .content {
+      gap: 40px;
+    }
+    &__start-btn {
+      max-width: 80%;
     }
   }
 }

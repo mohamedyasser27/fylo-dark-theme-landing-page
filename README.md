@@ -45,6 +45,10 @@ Users should be able to:
 
 ### What I learned
 
+- How to use Sass different Features
+- use white-space:nowrap to stop breaking words on narrower screens
+
+
 ### Continued development
 
 ### Useful resources
