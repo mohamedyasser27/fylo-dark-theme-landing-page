@@ -15,21 +15,30 @@ body {
 }
 
 main > *:not(header) {
-  margin-top: 50px;
+  margin-top: 70px;
 }
 
 .content {
-  width: 90%;
+  width: 85%;
   margin: 0 auto;
 }
-
+.header {
+  &__logo-link {
+    flex-shrink: 0.8;
+  }
+  &__logo-img {
+    max-width: 100%;
+    fill: currentColor;
+    color: $White;
+    transition: color 225ms 0s ease-out;
+    &:hover {
+      color: $Cyan;
+    }
+  }
+}
 header .content {
   @include flexer(row, space-between, center, nowrap, 10px);
   padding-top: 35px;
-
-  .header-logo-img {
-    max-width: 100%;
-  }
 }
 
 .main-nav {
@@ -51,7 +60,7 @@ header .content {
     white-space: nowrap;
     /*relative to after*/
     position: relative;
-      transition: color 225ms 0s ease-out;
+    transition: color 225ms 0s ease-out;
 
     &::after {
       content: "";
@@ -66,7 +75,7 @@ header .content {
       transition: width 225ms 0s ease-out;
     }
 
-    &:hover{
+    &:hover {
       color: $Cyan;
     }
     &:hover::after {
@@ -120,7 +129,101 @@ header .content {
     transition: filter 225ms 0ms ease-out;
 
     &:hover {
-    background:#8CDAE4;
+      background: #8cdae4;
+    }
+  }
+}
+
+.features {
+  .content {
+    max-width: 1200px;
+    --gap: 30px;
+    display: grid;
+    gap: var(--gap);
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(clamp(350px, calc((100% - var(--gap)) / 2), 650px), 1fr)
+    );
+  }
+
+  .feature-card {
+    max-width: 100%;
+    @include flexer(column, start, center, nowrap, 10px);
+    text-align: center;
+    &__logo {
+      flex-basis: 85px;
+    }
+
+    &__description {
+      width: 100%;
+      max-width: 52ch;
+    }
+  }
+}
+.stay-productive {
+  & .content {
+    @include flexer(row, center, center, nowrap, 65px);
+  }
+  &__hero {
+    flex-shrink: 0.5;
+  }
+
+  &__right > * {
+    margin-bottom: 20px;
+  }
+
+  &__hero-img {
+    max-width: 100%;
+  }
+
+  &__header {
+    font-size: clamp(1.4rem, -0.4235rem + 3.3284vw, 3rem);
+    line-height: 1.05;
+  }
+
+  &__description {
+    font-size: clamp(0.9rem, 0.6721rem + 0.416vw, 1.1rem);
+    max-width: 64ch;
+    width: 100%;
+  }
+
+  &__learn-more-link {
+    color: $Cyan;
+    text-decoration: none;
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    width: fit-content;
+
+    &,
+    & svg {
+      transition: color 225ms 0s ease-out;
+    }
+
+    &:hover,
+    &:hover svg {
+      color: $White;
+    }
+
+    &::before {
+      content: "";
+      background-color: $Cyan;
+      width: 100%;
+      height: 1px;
+      position: absolute;
+      bottom: -1px;
+      left: 0px;
+      transition: background-color 225ms 0s ease-out;
+    }
+
+    &:hover::before {
+      background-color: $White;
+    }
+
+    svg {
+      color: $Cyan;
+      fill: currentColor;
     }
   }
 }
@@ -132,6 +235,23 @@ header .content {
     }
     &__start-btn {
       max-width: 80%;
+    }
+  }
+  .features {
+    .content {
+      grid-template-columns: 1fr;
+      justify-content: center;
+      gap: 25px;
+    }
+  }
+  .stay-productive {
+    &__header {
+      br {
+        display: none;
+      }
+    }
+    & .content {
+      @include flexer(column, center, center, nowrap, 40px);
     }
   }
 }

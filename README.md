@@ -42,11 +42,13 @@ Users should be able to:
 - Semantic HTML5 markup
 - CSS custom properties
 - Flexbox
+- SASS
 
 ### What I learned
 
-- How to use Sass different Features
-- use white-space:nowrap to stop breaking words on narrower screens
+- How to use Sass different Features.
+- use white-space:nowrap to stop breaking words on narrower screens.
+- how to use viewBox on SVGs to resize them.
 
 
 ### Continued development
