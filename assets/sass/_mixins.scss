@@ -1,11 +1,11 @@
 @mixin resetBtnStyle($bgColor: transparent, $color: white) {
-  background-color: $bgColor;
+  background: $bgColor;
   border: none;
   color: white;
   cursor: pointer;
 }
 
-@mixin flexer($direction, $justify, $align, $wrap: nowrap, $gap: 0px) {
+@mixin flexer($direction:row, $justify:normal, $align:normal, $wrap: nowrap, $gap: 0px) {
   display: flex;
   flex-direction: $direction;
   justify-content: $justify;

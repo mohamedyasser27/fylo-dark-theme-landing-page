@@ -49,7 +49,7 @@ Users should be able to:
 - How to use Sass different Features.
 - use white-space:nowrap to stop breaking words on narrower screens.
 - how to use viewBox on SVGs to resize them.
-
+- use basic form validation API
 
 ### Continued development
 
