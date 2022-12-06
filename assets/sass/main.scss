@@ -15,13 +15,14 @@ body {
 }
 
 main > *:not(header) {
-  margin-top: 70px;
+  margin-top: 150px;
 }
 
 .content {
   width: 85%;
   margin: 0 auto;
 }
+
 .header {
   &__logo-link {
     flex-shrink: 0.8;
@@ -36,6 +37,7 @@ main > *:not(header) {
     }
   }
 }
+
 header .content {
   @include flexer(row, space-between, center, nowrap, 10px);
   padding-top: 35px;
@@ -160,6 +162,7 @@ header .content {
     }
   }
 }
+
 .stay-productive {
   & .content {
     @include flexer(row, center, center, nowrap, 65px);
@@ -228,6 +231,50 @@ header .content {
   }
 }
 
+.reviews {
+  .content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+  }
+  margin-bottom: 100px;
+}
+.review-card {
+  border-radius: 4px;
+  background-color: $Dark_Blue_Reviews;
+  padding: 20px;
+  box-shadow: 5px 5px 0px 0px rgba(18, 23, 32, 1);
+  &:nth-child(1) {
+    position: relative;
+  }
+  &:nth-child(1)::before {
+    content: url("../images/bg-quotes.png");
+    position: absolute;
+    top: -35px;
+    left: -10px;
+    z-index: -1;
+  }
+
+  &__text {
+    margin-block: 25px;
+  }
+  &__reviewer {
+    @include flexer(row, flex-start, center, nowrap, 7px);
+  }
+  &__avatar {
+    border-radius: 50%;
+    max-width: 24px;
+  }
+  &__position,
+  &__name {
+    font-size: 0.6rem;
+  }
+
+  &__name {
+    font-weight: 700;
+  }
+}
+
 @media only screen and (max-width: 767px) {
   .intro {
     .content {
@@ -254,4 +301,15 @@ header .content {
       @include flexer(column, center, center, nowrap, 40px);
     }
   }
-}
+  .review-card {
+  &:nth-child(1) {
+    position: relative;
+  }
+  &:nth-child(1)::before {
+
+    top: -45px;
+    left: 0px;
+    z-index: 1;
+  }
+
+}}

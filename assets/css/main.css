@@ -375,7 +375,7 @@ main {
 }
 
 body {
-  background-color: #202a3c;
+  background-color: #0b1523;
   color: #ffffff;
   font-family: "Open Sans", sans-serif;
   font-size: 14px;
@@ -383,7 +383,7 @@ body {
 }
 
 main > *:not(header) {
-  margin-top: 70px;
+  margin-top: 150px;
 }
 
 .content {
@@ -581,6 +581,53 @@ header .content {
   fill: currentColor;
 }
 
+.reviews {
+  margin-bottom: 100px;
+}
+.reviews .content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
+}
+
+.review-card {
+  border-radius: 4px;
+  background-color: #202a3c;
+  padding: 20px;
+  box-shadow: 5px 5px 0px 0px rgb(18, 23, 32);
+}
+.review-card:nth-child(1) {
+  position: relative;
+}
+.review-card:nth-child(1)::before {
+  content: url("../images/bg-quotes.png");
+  position: absolute;
+  top: -35px;
+  left: -10px;
+  z-index: -1;
+}
+.review-card__text {
+  margin-block: 25px;
+}
+.review-card__reviewer {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 7px;
+}
+.review-card__avatar {
+  border-radius: 50%;
+  max-width: 24px;
+}
+.review-card__position, .review-card__name {
+  font-size: 0.6rem;
+}
+.review-card__name {
+  font-weight: 700;
+}
+
 @media only screen and (max-width: 767px) {
   .intro .content {
     gap: 40px;
@@ -603,5 +650,13 @@ header .content {
     align-items: center;
     flex-wrap: nowrap;
     gap: 40px;
+  }
+  .review-card:nth-child(1) {
+    position: relative;
+  }
+  .review-card:nth-child(1)::before {
+    top: -45px;
+    left: 0px;
+    z-index: 1;
   }
 }/*# sourceMappingURL=main.css.map */
