@@ -15,18 +15,15 @@ body {
     weight: 400;
   }
 }
+
 main {
   position: relative;
-
   min-height: 100vh;
   background: {
   }
   &:before {
+    @include absolutePosition($left: 0px, $bottom: 0px, $z-index: -1);
     content: "";
-    position: absolute;
-    bottom: 0px;
-    left: 0px;
-    z-index: -1;
     width: 100%;
     height: 100%;
     background: {
@@ -37,12 +34,9 @@ main {
     }
   }
   &:after {
+    @include absolutePosition($left: 0px, $bottom: 0px, $z-index: -1);
     content: "";
     display: block;
-    position: absolute;
-    bottom: 0px;
-    left: 0px;
-    z-index: -1;
     width: 100%;
     height: calc(650px + 70vw);
     background: {
@@ -57,24 +51,23 @@ main > *:not(header) {
   margin-top: 150px;
 }
 
+.hidden-Header {
+  @include invisibleHeading();
+}
+
 .content {
   width: 85%;
   margin: 0 auto;
-}
-
-.hidden-Header{
-  @include invisibleHeading();
-  color: red($color: #000000);
 }
 
 .header {
   &__logo-link {
     flex-shrink: 0.8;
   }
+
   &__logo-img {
+    @include svgFiller($White);
     max-width: 100%;
-    fill: currentColor;
-    color: $White;
     transition: color 225ms 0s ease-out;
     &:hover {
       color: $Cyan;
@@ -109,12 +102,10 @@ header .content {
     transition: color 225ms 0s ease-out;
 
     &::after {
+      @include absolutePosition($left: 0px, $bottom: -1px);
       content: "";
       background-color: $Cyan;
       display: block;
-      position: absolute;
-      left: 0px;
-      bottom: -1px;
       width: 0px;
       height: 1px;
       font-weight: 400;
@@ -145,10 +136,10 @@ header .content {
   }
 
   &__header {
-    font-family: "Raleway";
     max-width: 29ch;
     width: 100%;
     font: {
+      family: "Raleway";
       size: 2rem;
       weight: 700;
     }
@@ -183,8 +174,8 @@ header .content {
 
 .features {
   .content {
-    max-width: 1200px;
     --gap: 30px;
+    max-width: 1200px;
     display: grid;
     gap: var(--gap);
     grid-template-columns: repeat(
@@ -194,8 +185,8 @@ header .content {
   }
 
   .feature-card {
-    max-width: 100%;
     @include flexer(column, start, center, nowrap, 10px);
+    max-width: 100%;
     text-align: center;
     &__logo {
       flex-basis: 85px;
@@ -236,13 +227,11 @@ header .content {
   }
 
   &__learn-more-link {
+    @include flexer($align: center, $gap: 5px);
     color: $Cyan;
     text-decoration: none;
-    position: relative;
-    display: flex;
-    align-items: center;
-    gap: 5px;
     width: fit-content;
+    position: relative;
 
     &,
     & svg {
@@ -255,13 +244,11 @@ header .content {
     }
 
     &::before {
+      @include absolutePosition($left: 0px, $bottom: -1px);
       content: "";
       background-color: $Cyan;
       width: 100%;
       height: 1px;
-      position: absolute;
-      bottom: -1px;
-      left: 0px;
       transition: background-color 225ms 0s ease-out;
     }
 
@@ -270,8 +257,7 @@ header .content {
     }
 
     svg {
-      color: $Cyan;
-      fill: currentColor;
+      @include svgFiller($Cyan);
     }
   }
 }
@@ -292,24 +278,25 @@ header .content {
   &:nth-child(1) {
     position: relative;
   }
+
   &:nth-child(1)::before {
+    @include absolutePosition($left: -10px, $top: -35px, $z-index: 1);
     content: url("../images/bg-quotes.png");
-    position: absolute;
-    top: -35px;
-    left: -10px;
-    z-index: -1;
   }
 
   &__text {
     margin-block: 25px;
   }
+
   &__reviewer {
     @include flexer(row, flex-start, center, nowrap, 7px);
   }
+
   &__avatar {
     border-radius: 50%;
     max-width: 24px;
   }
+  
   &__position,
   &__name {
     font-size: 0.6rem;
@@ -385,12 +372,12 @@ header .content {
   }
 
   .error-msg {
+    @include absolutePosition($left: 10px, $bottom: -25px);
     display: none;
-    position: absolute;
-    bottom: -25px;
-    left: 10px;
-    font-weight: 700;
-    font-size: 12px;
+    font: {
+      weight: 700;
+      size: 12px;
+    }
     color: $Light_Red;
   }
 }
@@ -401,9 +388,8 @@ header .content {
   padding-top: 300px;
 
   &__logo-img {
+      @include svgFiller($White);
     max-width: 100%;
-    fill: currentColor;
-    color: $White;
     margin-bottom: 50px;
     transition: color 225ms 0s ease-out;
     &:hover {
@@ -412,9 +398,7 @@ header .content {
   }
 
   &-info {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    @include flexer(row, space-between, stretch, wrap, 0px);
     width: 100%;
     position: relative;
   }
@@ -445,9 +429,7 @@ header .content {
   }
 
   .company-contact {
-    display: flex;
-    align-items: flex-start;
-    gap: 25px;
+    @include flexer($align: flex-start, $gap: 25px);
     margin-bottom: 10px;
 
     &__info {
@@ -462,8 +444,7 @@ header .content {
 
 .social-media {
   &-nav {
-    display: flex;
-    gap: 25px;
+    @include flexer($gap: 25px);
   }
 
   &-link {
@@ -471,12 +452,10 @@ header .content {
   }
 
   &-logo {
+      @include svgFiller($White);
     border-radius: 50%;
     border: $White 1px solid;
     padding: 5px;
-
-    color: $White;
-    fill: currentColor;
     width: 30px;
     transition: color 225ms 0s ease-out, border-color 225ms 0s ease-out;
     &:hover {
@@ -549,6 +528,7 @@ $mobile-breakpoint: 767px;
   }
 
   .footer {
+    padding-bottom: 50px;
     &-info {
       gap: 40px;
       flex-direction: column;

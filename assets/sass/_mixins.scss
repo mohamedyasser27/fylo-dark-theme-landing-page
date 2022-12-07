@@ -5,7 +5,13 @@
   cursor: pointer;
 }
 
-@mixin flexer($direction:row, $justify:normal, $align:normal, $wrap: nowrap, $gap: 0px) {
+@mixin flexer(
+  $direction: row,
+  $justify: normal,
+  $align: normal,
+  $wrap: nowrap,
+  $gap: 0px
+) {
   display: flex;
   flex-direction: $direction;
   justify-content: $justify;
@@ -24,4 +30,24 @@
   padding: 0;
   position: absolute;
   width: 1px;
+}
+
+@mixin absolutePosition(
+  $top: auto,
+  $right: auto,
+  $bottom: auto,
+  $left: auto,
+  $z-index: auto
+) {
+  position: absolute;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+  z-index: $z-index;
+}
+
+@mixin svgFiller($color: white) {
+  fill: currentColor;
+  color: $color;
 }
