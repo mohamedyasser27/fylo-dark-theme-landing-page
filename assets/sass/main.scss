@@ -4,13 +4,57 @@
 @use "./global-rules";
 @use "./mixins" as *;
 
+html{
+  
+}
+
 body {
-  background-color: $Dark_Blue_BG;
+
+  background: {
+    color: #1c2230;
+  }
   color: $White;
   font: {
     family: "Open Sans", sans-serif;
     size: 14px;
     weight: 400;
+  }
+}
+main {
+  position: relative;
+
+  min-height: 100vh;
+  background: {
+  }
+  &:before {
+    content: "";
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    background: {
+      image: url("../images/bg-curvy-desktop.svg");
+      repeat: no-repeat;
+      size: contain;
+      position: bottom calc(650px + 70vw) left 0;
+    }
+  }
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    z-index: -1;
+    width: 100%;
+    height: calc(650px + 70vw);
+    background: {
+      color: $Dark_Blue_BG;
+      size: 100% 100%;
+      position: bottom 0px left 0px;
+    }
   }
 }
 
@@ -282,20 +326,19 @@ header .content {
   max-width: 860px;
   width: 100%;
   margin: 0 auto;
+  margin-top: 100px;
   padding: 30px 70px;
-  margin-block: 100px;
   box-shadow: 5px 5px 5px 0px rgba(18, 23, 32, 1);
 
-
   &__header {
-    font-size: clamp(1.5rem, 1.3571rem + 0.6250vw, 2rem);
+    font-size: clamp(1.5rem, 1.3571rem + 0.625vw, 2rem);
     text-align: center;
     margin-block: 25px;
   }
 
   &__description {
-  text-align: center;
-  font-size: clamp(0.8rem, 0.5721rem + 0.4160vw, 1rem);
+    text-align: center;
+    font-size: clamp(0.8rem, 0.5721rem + 0.416vw, 1rem);
   }
 
   &__form {
@@ -304,7 +347,6 @@ header .content {
 
     /*relative to error msg*/
     position: relative;
-
   }
 
   #email-input,
@@ -323,7 +365,6 @@ header .content {
     outline: none;
   }
 
-
   #submit-btn {
     @include resetBtnStyle(
       linear-gradient(
@@ -341,28 +382,46 @@ header .content {
     }
   }
 
-
-  .error-msg{
+  .error-msg {
     display: none;
     position: absolute;
     bottom: -25px;
-    left:10px;
+    left: 10px;
     font-weight: 700;
     font-size: 12px;
     color: $Light_Red;
   }
 }
 
-@media only screen and (max-width: 861px) {
- .sign-up-section{
-    width: 90%;
-  padding: 30px;
+$sign-up-breakpoint: 870px;
+@media only screen and (max-width: $sign-up-breakpoint) {
+main {
+  position: relative;
 
+  min-height: 100vh;
+  background: {
+  }
+  &:before {
+    background: {
+      image: url("../images/bg-curvy-mobile.svg");
+      position: bottom 3000px left 0;
+
+    }
+  }
+  &:after {
+  
+    height: 3000px;
+   
+  }
+}
+  .sign-up-section {
+    width: 90%;
+    padding: 30px;
   }
 }
 
-
-@media only screen and (max-width: 767px) {
+$mobile-breakpoint: 767px;
+@media only screen and (max-width: $mobile-breakpoint) {
   .intro {
     .content {
       gap: 40px;
@@ -398,6 +457,4 @@ header .content {
       z-index: 1;
     }
   }
-
- 
 }
