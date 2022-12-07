@@ -564,6 +564,10 @@ header .content {
 .features .feature-card__logo {
   flex-basis: 85px;
 }
+.features .feature-card__header {
+  font-family: "Raleway";
+  font-weight: 700;
+}
 .features .feature-card__description {
   width: 100%;
   max-width: 52ch;
@@ -587,7 +591,9 @@ header .content {
   max-width: 100%;
 }
 .stay-productive__header {
+  font-family: "Raleway";
   font-size: clamp(1.4rem, -0.4235rem + 3.3284vw, 3rem);
+  font-weight: 700;
   line-height: 1.05;
 }
 .stay-productive__description {
@@ -694,9 +700,11 @@ header .content {
   translate: 0px 300px;
 }
 .sign-up-section__header {
-  font-size: clamp(1.5rem, 1.3571rem + 0.625vw, 2rem);
   text-align: center;
   margin-block: 25px;
+  font-family: "Raleway";
+  font-size: clamp(1.5rem, 1.3571rem + 0.625vw, 2rem);
+  font-weight: 700;
 }
 .sign-up-section__description {
   text-align: center;

@@ -192,6 +192,13 @@ header .content {
       flex-basis: 85px;
     }
 
+    &__header{
+       font: {
+      family: "Raleway";
+      weight: 700;
+    }
+    }
+
     &__description {
       width: 100%;
       max-width: 52ch;
@@ -216,8 +223,13 @@ header .content {
   }
 
   &__header {
-    font-size: clamp(1.4rem, -0.4235rem + 3.3284vw, 3rem);
+      font: {
+      family: "Raleway";
+      size: clamp(1.4rem, -0.4235rem + 3.3284vw, 3rem);
+      weight: 700;
+    }
     line-height: 1.05;
+    
   }
 
   &__description {
@@ -296,7 +308,7 @@ header .content {
     border-radius: 50%;
     max-width: 24px;
   }
-  
+
   &__position,
   &__name {
     font-size: 0.6rem;
@@ -320,9 +332,13 @@ header .content {
   translate: 0px 300px;
 
   &__header {
-    font-size: clamp(1.5rem, 1.3571rem + 0.625vw, 2rem);
     text-align: center;
     margin-block: 25px;
+    font: {
+      family: "Raleway";
+      size: clamp(1.5rem, 1.3571rem + 0.625vw, 2rem);
+      weight: 700;
+    }
   }
 
   &__description {
