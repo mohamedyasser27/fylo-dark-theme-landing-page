@@ -422,6 +422,19 @@ main > *:not(header) {
   margin: 0 auto;
 }
 
+.hidden-Header {
+  border: 0;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  color: 0;
+}
+
 .header__logo-link {
   flex-shrink: 0.8;
 }
@@ -661,9 +674,10 @@ header .content {
   max-width: 860px;
   width: 100%;
   margin: 0 auto;
-  margin-top: 100px;
+  margin-top: -150px;
   padding: 30px 70px;
   box-shadow: 5px 5px 5px 0px rgb(18, 23, 32);
+  translate: 0px 300px;
 }
 .sign-up-section__header {
   font-size: clamp(1.5rem, 1.3571rem + 0.625vw, 2rem);
@@ -720,6 +734,88 @@ header .content {
   color: #ff4242;
 }
 
+.footer {
+  background-color: #0b1523;
+  padding-bottom: 150px;
+  padding-top: 300px;
+}
+.footer__logo-img {
+  max-width: 100%;
+  fill: currentColor;
+  color: #ffffff;
+  margin-bottom: 50px;
+  transition: color 225ms 0s ease-out;
+}
+.footer__logo-img:hover {
+  color: #65e2d9;
+}
+.footer-info {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+  position: relative;
+}
+.footer-nav__list {
+  display: grid;
+  justify-items: start;
+  grid-auto-flow: column;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  row-gap: 10px;
+  -moz-column-gap: 50px;
+       column-gap: 50px;
+  list-style-type: none;
+}
+.footer-nav__item {
+  width: 120px;
+}
+.footer-nav__item__link {
+  background: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+  color: #fff;
+  text-decoration: none;
+  transition: color 225ms 0s ease-out;
+}
+.footer-nav__item__link:hover {
+  color: #65e2d9;
+}
+.footer .company-contact {
+  display: flex;
+  align-items: flex-start;
+  gap: 25px;
+  margin-bottom: 10px;
+}
+.footer .company-contact__info {
+  color: #fff;
+  max-width: 40ch;
+}
+.footer .company-contact__icon {
+  translate: 0px 6px;
+}
+
+.social-media-nav {
+  display: flex;
+  gap: 25px;
+}
+.social-media-link {
+  text-decoration: none;
+}
+.social-media-logo {
+  border-radius: 50%;
+  border: #ffffff 1px solid;
+  padding: 5px;
+  color: #ffffff;
+  fill: currentColor;
+  width: 30px;
+  transition: color 225ms 0s ease-out, border-color 225ms 0s ease-out;
+}
+.social-media-logo:hover {
+  border-color: #65e2d9;
+  color: #65e2d9;
+}
+
 @media only screen and (max-width: 870px) {
   main {
     position: relative;
@@ -767,5 +863,13 @@ header .content {
     top: -45px;
     left: 0px;
     z-index: 1;
+  }
+  .footer-info {
+    gap: 40px;
+    flex-direction: column;
+  }
+  .footer-nav__list {
+    grid-auto-flow: row;
+    grid-template-rows: initial;
   }
 }/*# sourceMappingURL=main.css.map */

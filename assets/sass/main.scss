@@ -4,12 +4,7 @@
 @use "./global-rules";
 @use "./mixins" as *;
 
-html{
-  
-}
-
 body {
-
   background: {
     color: #1c2230;
   }
@@ -65,6 +60,11 @@ main > *:not(header) {
 .content {
   width: 85%;
   margin: 0 auto;
+}
+
+.hidden-Header{
+  @include invisibleHeading();
+  color: red($color: #000000);
 }
 
 .header {
@@ -326,9 +326,11 @@ header .content {
   max-width: 860px;
   width: 100%;
   margin: 0 auto;
-  margin-top: 100px;
+  margin-top: -150px;
   padding: 30px 70px;
   box-shadow: 5px 5px 5px 0px rgba(18, 23, 32, 1);
+
+  translate: 0px 300px;
 
   &__header {
     font-size: clamp(1.5rem, 1.3571rem + 0.625vw, 2rem);
@@ -393,27 +395,115 @@ header .content {
   }
 }
 
-$sign-up-breakpoint: 870px;
-@media only screen and (max-width: $sign-up-breakpoint) {
-main {
-  position: relative;
+.footer {
+  background-color: $Dark_Blue_footer;
+  padding-bottom: 150px;
+  padding-top: 300px;
 
-  min-height: 100vh;
-  background: {
-  }
-  &:before {
-    background: {
-      image: url("../images/bg-curvy-mobile.svg");
-      position: bottom 3000px left 0;
-
+  &__logo-img {
+    max-width: 100%;
+    fill: currentColor;
+    color: $White;
+    margin-bottom: 50px;
+    transition: color 225ms 0s ease-out;
+    &:hover {
+      color: $Cyan;
     }
   }
-  &:after {
-  
-    height: 3000px;
-   
+
+  &-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    position: relative;
+  }
+
+  &-nav {
+    &__list {
+      display: grid;
+      justify-items: start;
+      grid-auto-flow: column;
+      grid-template-rows: 1fr 1fr 1fr 1fr;
+      row-gap: 10px;
+      column-gap: 50px;
+      list-style-type: none;
+    }
+
+    &__item {
+      width: 120px;
+      &__link {
+        @include resetBtnStyle(transparent);
+        color: #fff;
+        text-decoration: none;
+        transition: color 225ms 0s ease-out;
+        &:hover {
+          color: $Cyan;
+        }
+      }
+    }
+  }
+
+  .company-contact {
+    display: flex;
+    align-items: flex-start;
+    gap: 25px;
+    margin-bottom: 10px;
+
+    &__info {
+      color: #fff;
+      max-width: 40ch;
+    }
+    &__icon {
+      translate: 0px 6px;
+    }
   }
 }
+
+.social-media {
+  &-nav {
+    display: flex;
+    gap: 25px;
+  }
+
+  &-link {
+    text-decoration: none;
+  }
+
+  &-logo {
+    border-radius: 50%;
+    border: $White 1px solid;
+    padding: 5px;
+
+    color: $White;
+    fill: currentColor;
+    width: 30px;
+    transition: color 225ms 0s ease-out, border-color 225ms 0s ease-out;
+    &:hover {
+      border-color: $Cyan;
+      color: $Cyan;
+    }
+  }
+}
+
+$sign-up-breakpoint: 870px;
+@media only screen and (max-width: $sign-up-breakpoint) {
+  main {
+    position: relative;
+
+    min-height: 100vh;
+    background: {
+    }
+    &:before {
+      background: {
+        image: url("../images/bg-curvy-mobile.svg");
+        position: bottom 3000px left 0;
+      }
+    }
+    &:after {
+      height: 3000px;
+    }
+  }
   .sign-up-section {
     width: 90%;
     padding: 30px;
@@ -455,6 +545,18 @@ $mobile-breakpoint: 767px;
       top: -45px;
       left: 0px;
       z-index: 1;
+    }
+  }
+
+  .footer {
+    &-info {
+      gap: 40px;
+      flex-direction: column;
+    }
+
+    &-nav__list {
+      grid-auto-flow: row;
+      grid-template-rows: initial;
     }
   }
 }
